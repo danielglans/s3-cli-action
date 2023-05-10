@@ -1,6 +1,6 @@
 FROM python:3.8-alpine
 
-ENV AWSCLI_VERSION="2.11.17"
+ENV AWSCLI_VERSION="1.27.131"
 
 RUN pip install --quiet --no-cache-dir awscli==${AWSCLI_VERSION}
 
