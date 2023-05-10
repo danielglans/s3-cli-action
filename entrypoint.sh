@@ -17,6 +17,11 @@ if [ -z "$AWS_REGION" ]; then
   AWS_REGION="us-east-1"
 fi
 
+# Override default AWS endpoint if user sets AWS_S3_ENDPOINT.
+if [ -n "$AWS_S3_ENDPOINT" ]; then
+  ENDPOINT_APPEND="--endpoint-url $AWS_S3_ENDPOINT"
+fi
+
 # Create a dedicated profile for this action to avoid conflicts
 # with past/future actions.
 aws configure --profile s3-cli-action <<-EOF > /dev/null 2>&1
@@ -28,8 +33,9 @@ EOF
 
 # Sync using our dedicated profile and suppress verbose messages.
 sh -c "aws s3 $* \
-    		--profile s3-cli-action \
-            --no-progress"
+    	  --profile s3-cli-action \
+        --no-progress \
+        ${ENDPOINT_APPEND}"
 
 # Clear out credentials after running our tasks to hide traces.
 aws configure --profile s3-cli-action <<-EOF > /dev/null 2>&1
