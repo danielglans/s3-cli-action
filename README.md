@@ -2,20 +2,20 @@
 
 GitHub action for interacting with an AWS S3 compatible bucket storage.
 
-## Inputs
+## Usage
 
-## `who-to-greet`
-
-**Required** The name of the person to greet. Default `"World"`.
-
-## Outputs
-
-## `time`
-
-The time we greeted you.
+Use this action to interact with AWS Command Line Interface (AWS CLI). Usage guide [AWS Command Line Interface](https://docs.aws.amazon.com/cli/v1/userguide/cli-chap-welcome.html).
 
 ## Example usage
 
-uses: actions/hello-world-docker-action@v2
-with:
-  who-to-greet: 'Mona the Octocat'
+```yml
+- name: Push Backups to S3 Bucket
+  uses: maya-hive/s3-cli-action@v3
+  with:
+    args: "sync backups s3://new_bucket/new_object"
+  env:
+    AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+    AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    AWS_S3_ENDPOINT: ${{ secrets.AWS_S3_ENDPOINT }}
+    AWS_REGION: ${{ secrets.AWS_REGION }}
+```
