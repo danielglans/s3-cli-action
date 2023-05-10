@@ -1,0 +1,6 @@
+name: "S3 CLI Action"
+description: "CLI interface for interacting with an s3 compatible storage"
+author: maya-hive
+runs:
+  using: docker
+  image: Dockerfile
