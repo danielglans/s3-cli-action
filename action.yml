@@ -4,3 +4,6 @@ author: maya-hive
 runs:
   using: docker
   image: Dockerfile
+branding:
+  icon: chevron-right
+  color: gray-dark
