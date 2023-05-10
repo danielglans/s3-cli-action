@@ -10,17 +10,8 @@ env:
   IMAGE_NAME: ${{ github.repository }}
 
 jobs:
-  prepare:
-    name: "Prepare 🚧"
-    runs-on: ubuntu-latest
-
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
-    steps:
-      - run: echo 'The triggering workflow passed'
-
   build-and-push-image:
     name: "Build & Push 📦"
-    needs: [prepare]
     runs-on: ubuntu-latest
     permissions:
       contents: read
