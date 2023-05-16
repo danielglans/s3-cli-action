@@ -10,7 +10,7 @@ Use this action to interact with AWS Command Line Interface (AWS CLI). Usage gui
 
 ```yml
 - name: Push Backups to S3 Bucket
-  uses: maya-hive/s3-cli-action@v4
+  uses: maya-hive/s3-cli-action@v1.0.0
   with:
     args: "sync backups s3://new_bucket/new_object"
   env:
