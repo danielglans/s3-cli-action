@@ -30,7 +30,6 @@ EOF
 
 sh -c "aws s3 $* \
     	  --profile s3-cli-action \
-        --no-progress \
         ${ENDPOINT_APPEND}"
 
 aws configure --profile s3-cli-action <<-EOF > /dev/null 2>&1
