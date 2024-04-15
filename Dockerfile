@@ -1,6 +1,6 @@
-FROM python:3.8
+FROM python:3.11
 
-ENV AWSCLI_VERSION="1.27.131"
+ENV AWSCLI_VERSION="2.15.37"
 
 RUN pip install --quiet --no-cache-dir awscli==${AWSCLI_VERSION}
 
